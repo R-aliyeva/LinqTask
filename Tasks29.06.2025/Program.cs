@@ -219,8 +219,20 @@ namespace Tasks29._06._2025
 
             //26.Kompleks toplama: Orta əmək haqqının ümumi şirkətdən yuxarı olduğu şöbələri tapın
             //orta.
+            Console.WriteLine("26.Kompleks toplama: Orta əmək haqqının ümumi şirkətdən yuxarı olduğu şöbələri tapın.");
+            var avr = employees.Average(e => e.Salary);
+            var emplo = employees.Where(e => e.Salary > avr).Select(e => new { e.Department }).Distinct();
+           
+            emplo.Print();
             //27.Zəncirləmə əməliyyatları: İT departamentində ikinci ən yüksək maaşı tapın.
+            Console.WriteLine("27.Zəncirləmə əməliyyatları: İT departamentində ikinci ən yüksək maaşı tapın.");
+            var resultt = employees.OrderByDescending(e => e.Salary).Where(e => e.Department == "IT").Select(e => new { e.Salary,e.Name }).Skip(1).Take(1);
+            resultt.Print();
+
             //28.Xüsusi müqayisə: Eyni şöbədə işləyən, lakin fərqli maaşları olan işçiləri tapın
+            
+                
+            
 
 
         }
